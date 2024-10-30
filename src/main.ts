@@ -3,8 +3,11 @@ import './shared/infrastructure/load-env-vars';
 import express, { Request, Response } from 'express';
 
 import { config } from './shared/infrastructure/config';
+import { DatabaseManager } from './shared/infrastructure/database/database-manager';
 
-function bootstrap() {
+async function bootstrap() {
+  await DatabaseManager.startConnection();
+
   const app = express();
 
   app.use(express.json());
