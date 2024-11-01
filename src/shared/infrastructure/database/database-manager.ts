@@ -1,3 +1,4 @@
+import pg from 'pg';
 import { Dialect } from 'sequelize/types/sequelize';
 import { Sequelize } from 'sequelize-typescript';
 import { SequelizeOptions } from 'sequelize-typescript/dist/sequelize/sequelize/sequelize-options';
@@ -21,6 +22,7 @@ export class DatabaseManager {
         dialect: dbDialect as Dialect,
         models: [],
         logging: false,
+        dialectModule: pg,
       };
 
       if (nodeEnv === 'production') {
