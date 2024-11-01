@@ -34,4 +34,10 @@ export class DatabaseManager {
       console.log(`Error connecting to ${dbName} database`);
     }
   }
+
+  static async closeConnection() {
+    if (this.dbConnection) {
+      await this.dbConnection.close();
+    }
+  }
 }

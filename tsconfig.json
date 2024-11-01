@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
     "module": "commonjs",
     "esModuleInterop": true,
     "target": "es6",
@@ -11,12 +12,13 @@
     "noEmit": false,
     "resolveJsonModule": true,
     "noUnusedLocals": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "strictPropertyInitialization": false
   },
   "include": [
     "src/**/**.ts",
     "src/**/**.js",
-    "tests/**/**.ts"
+    "tests/**/*.spec.ts"
   ],
   "exclude": ["node_modules"]
 }
