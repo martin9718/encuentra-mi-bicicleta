@@ -7,5 +7,6 @@ export const config = {
     dbHost: process.env.DB_HOST,
     dbDialect: process.env.DB_DIALECT,
     dbPort: process.env.DB_PORT,
+    nodeEnv: process.env.NODE_ENV || 'development',
   },
 };

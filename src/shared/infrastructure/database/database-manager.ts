@@ -1,5 +1,6 @@
 import { Dialect } from 'sequelize/types/sequelize';
 import { Sequelize } from 'sequelize-typescript';
+import { SequelizeOptions } from 'sequelize-typescript/dist/sequelize/sequelize/sequelize-options';
 
 import { config } from '../config';
 const { dbHost, dbName, dbUser, dbPassword, dbDialect, dbPort } = config.server;
@@ -8,8 +9,10 @@ export class DatabaseManager {
   private static dbConnection: Sequelize;
 
   static getDbConnection(): Sequelize {
+    const { nodeEnv } = config.server;
+
     if (!this.dbConnection) {
-      this.dbConnection = new Sequelize({
+      const sequelizeOptions: SequelizeOptions = {
         host: dbHost,
         port: parseInt(dbPort || '5432'),
         database: dbName,
@@ -18,7 +21,17 @@ export class DatabaseManager {
         dialect: dbDialect as Dialect,
         models: [],
         logging: false,
-      });
+      };
+
+      if (nodeEnv === 'production') {
+        sequelizeOptions.dialectOptions = {
+          ssl: {
+            require: true,
+            rejectUnauthorized: false,
+          },
+        };
+      }
+      this.dbConnection = new Sequelize(sequelizeOptions);
     }
     return this.dbConnection;
   }
