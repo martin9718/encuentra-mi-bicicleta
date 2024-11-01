@@ -13,7 +13,7 @@ module.exports = {
 
     await queryInterface.sequelize.transaction(async (t) => {
       for (const station of stations) {
-        const existingStation = await queryInterface.select(
+        const [existingStation] = await queryInterface.select(
           null,
           'bike_stations',
           {
