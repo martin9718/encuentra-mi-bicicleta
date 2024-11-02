@@ -25,6 +25,10 @@ export async function createApp(): Promise<Express> {
 
   app.use('/api/bikeStations', bikeStationsRouter);
 
+  app.use('/*', (req, res) =>
+    res.status(404).json({ error: 'NOT_FOUND_ERROR' })
+  );
+
   app.use(errorHandleMiddleware);
 
   return app;
