@@ -16,16 +16,47 @@ nvm use 18
 npm install
 ```
 
-## Development
+## Run migrations and seeders
+
+```bash
+npx sequelize-cli db:migrate
+npx sequelize-cli db:seed:all
+```
+
+## Run development mode
 
 ```bash
 npm run start:dev
 ```
 
-## Building
+## Building for production
 
 ```bash
 npm run build
+```
+
+## Run production mode
+
+```bash
+npm run start
+```
+
+## Run tests
+
+```bash
+npm run test
+```
+
+## Test app
+
+```bash
+curl --location 'https://encuentra-mi-bici-c85b66bd6929.herokuapp.com/api/bikeStations?latitude=20.63877110592591&longitude=-103.41001728903304&distance=2'
+```
+
+## API Docs
+
+```bash
+curl --location 'https://encuentra-mi-bici-c85b66bd6929.herokuapp.com/api/bikeStations?latitude=20.63877110592591&longitude=-103.41001728903304&distance=2'
 ```
 
 ## Linting

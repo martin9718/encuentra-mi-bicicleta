@@ -9,8 +9,7 @@ export const swaggerOptions = {
     },
     servers: [
       {
-        url: 'http://localhost:3000',
-        description: 'Local server - Development environment',
+        url: 'https://encuentra-mi-bici-c85b66bd6929.herokuapp.com',
       },
     ],
   },
