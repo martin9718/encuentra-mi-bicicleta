@@ -56,7 +56,7 @@ curl --location 'https://encuentra-mi-bici-c85b66bd6929.herokuapp.com/api/bikeSt
 ## API Docs
 
 ```bash
-curl --location 'https://encuentra-mi-bici-c85b66bd6929.herokuapp.com/api/bikeStations?latitude=20.63877110592591&longitude=-103.41001728903304&distance=2'
+https://encuentra-mi-bici-c85b66bd6929.herokuapp.com/api/docs
 ```
 
 ## Linting
